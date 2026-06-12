@@ -233,7 +233,7 @@ Item galeri yang bisa diklik lightbox wajib punya kelas `.g-item` dan `.lightbox
 
 7. **Tidak ada form input** — Halaman kontak menggunakan model no-form. Tidak ada `<form>`, `<input>`, atau `<textarea>` di halaman manapun.
 
-8. **Selalu buat checkpoint** — Lakukan commit setiap kali menambahkan fitur/kode baru dengan commit message berbahasa inggris yang deskriptif
+8. **Selalu buat checkpoint** — Lakukan commit setiap kali menambahkan fitur/kode baru dengan commit message berbahasa inggris yang deskriptif.
 
 ---
 
