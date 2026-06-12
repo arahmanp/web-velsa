@@ -39,3 +39,65 @@ app/
 ```
 
 > Foto dan aset media asli belum tersedia — sementara menggunakan `assets/img/temp/temp_img.jpg` sebagai placeholder di seluruh halaman.
+
+---
+
+## Cara Menjalankan Secara Lokal
+
+> **Penting:** Situs ini menggunakan jQuery `.load()` untuk menyuntikkan navbar & footer. Fitur ini **tidak akan berjalan** jika file dibuka langsung via `file://` (double-click). Wajib dijalankan melalui local HTTP server.
+
+### Opsi A — Clone Repository (Git)
+
+**Prasyarat:** Git sudah terinstal ([git-scm.com](https://git-scm.com))
+
+```bash
+# 1. Clone repo ke komputer lokal
+git clone https://github.com/<username>/<repo-name>.git
+
+# 2. Masuk ke folder project
+cd <repo-name>/app
+```
+
+### Opsi B — Download ZIP
+
+1. Buka halaman repository di GitHub
+2. Klik tombol **Code** → **Download ZIP**
+3. Ekstrak file ZIP ke folder pilihan
+4. Buka folder hasil ekstrak hingga menemukan folder `app/`
+
+---
+
+### Menjalankan Local Server
+
+Setelah folder `app/` siap, pilih salah satu cara berikut:
+
+#### Cara 1 — VS Code Live Server *(Paling mudah)*
+1. Install ekstensi **Live Server** di VS Code ([marketplace](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer))
+2. Buka folder `app/` di VS Code
+3. Klik kanan pada `index.html` → **"Open with Live Server"**
+4. Browser akan otomatis terbuka di `http://127.0.0.1:5500`
+
+#### Cara 2 — Python *(Tanpa install apapun, Python sudah terinstal di Mac/Linux)*
+```bash
+# Masuk ke folder app/ terlebih dahulu
+cd path/to/app
+
+# Python 3
+python -m http.server 8080
+
+# Python 2 (jika versi lama)
+python -m SimpleHTTPServer 8080
+```
+Buka browser dan akses: `http://localhost:8080`
+
+#### Cara 3 — Node.js (`npx serve`)
+```bash
+# Pastikan Node.js sudah terinstal (nodejs.org)
+# Tidak perlu install apapun, cukup jalankan:
+npx serve .
+```
+Buka browser dan akses URL yang muncul di terminal (biasanya `http://localhost:3000`)
+
+---
+
+Setelah server berjalan, buka `http://localhost:<port>` di browser dan semua halaman (termasuk navbar & footer) akan tampil dengan benar.
