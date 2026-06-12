@@ -42,6 +42,10 @@ app/
 │   │   ├── kelas.css                 ← CSS khusus halaman hub kelas
 │   │   ├── gallery.css               ← CSS khusus halaman galeri
 │   │   ├── contact.css               ← CSS khusus halaman kontak
+│   │   ├── xii-mipa1.css             ← CSS khusus halaman kelas XII MIPA 1
+│   │   ├── xii-mipa2.css             ← CSS khusus halaman kelas XII MIPA 2
+│   │   ├── xii-mipa3.css             ← CSS khusus halaman kelas XII MIPA 3
+│   │   ├── xii-ips.css               ← CSS khusus halaman kelas XII IPS
 │   │   └── vendor/bootstrap-icons/   ← Bootstrap Icons (lokal)
 │   ├── js/
 │   │   ├── jquery.min.js             ← jQuery (lokal)
@@ -81,7 +85,6 @@ app/
 
 - **`global.css`** — variabel CSS, reset, tipografi, navbar, footer, tombol, section utilities. Dimuat di **semua** halaman.
 - **`x.css`** — layout dan komponen yang unik untuk halaman `x.html` saja. Ditulis di file terpisah.
-- **Pengecualian:** Halaman `kelas/[nama].html` tidak punya CSS file tersendiri — stylenya ditulis inline di dalam `<style>` di dalam `<head>` masing-masing file.
 
 ### CSS Variables (defined in global.css)
 
@@ -164,10 +167,10 @@ Halaman di subfolder `kelas/`:
 | `kelas.html` | Direktori Kelas | `kelas.css` | `kelas.js` |
 | `gallery.html` | Galeri Aktivitas | `gallery.css` | `gallery.js` |
 | `contact.html` | Kontak Resmi | `contact.css` | — |
-| `kelas/xii-mipa1.html` | XII MIPA 1 | `<style>` inline | — |
-| `kelas/xii-mipa2.html` | XII MIPA 2 | `<style>` inline | — |
-| `kelas/xii-mipa3.html` | XII MIPA 3 | `<style>` inline | — |
-| `kelas/xii-ips.html` | XII IPS | `<style>` inline | — |
+| `kelas/xii-mipa1.html` | XII MIPA 1 | `xii-mipa1.css` | — |
+| `kelas/xii-mipa2.html` | XII MIPA 2 | `xii-mipa2.css` | — |
+| `kelas/xii-mipa3.html` | XII MIPA 3 | `xii-mipa3.css` | — |
+| `kelas/xii-ips.html` | XII IPS | `xii-ips.css` | — |
 
 ---
 
@@ -216,7 +219,7 @@ Item galeri yang bisa diklik lightbox wajib punya kelas `.g-item` dan `.lightbox
    - Halaman root: `assets/img/temp/temp_img.jpg`
    - Halaman di `kelas/`: `../assets/img/temp/temp_img.jpg`
 
-3. **Pemisahan CSS ketat** — Style kosmetik global di `global.css`. Style layout spesifik halaman di `[halaman].css` atau `<style>` inline (khusus halaman kelas detail).
+3. **Pemisahan CSS ketat** — Style kosmetik global di `global.css`. Style layout spesifik halaman di `[halaman].css` masing-masing, termasuk halaman kelas detail.
 
 4. **Privacy compliant** — Di halaman publik manapun, **dilarang keras** menyimpan/menampilkan:
    - Nama lengkap individu anggota
