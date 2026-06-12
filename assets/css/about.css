@@ -1,0 +1,206 @@
+/* =========================================
+   ABOUT.CSS — Tentang Kami page styles
+   ========================================= */
+
+/* --- Page Hero Banner --- */
+.about-hero {
+  min-height: 55vh;
+  background-color: var(--clr-bg-dark3);
+  display: flex;
+  align-items: flex-end;
+  padding-top: 7rem;
+  padding-bottom: 4rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.about-hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(197,168,128,0.05) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.page-hero-title {
+  font-family: var(--font-heading);
+  font-size: clamp(3.5rem, 8vw, 7rem);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  line-height: 0.95;
+  color: var(--clr-white);
+  position: relative;
+  z-index: 1;
+}
+
+.page-hero-title span {
+  color: var(--clr-accent);
+}
+
+/* --- Visi Misi Section --- */
+.visi-misi-section {
+  background-color: var(--clr-bg-dark2);
+}
+
+.vm-card {
+  background-color: var(--clr-bg-dark3);
+  border: 1px solid var(--clr-border);
+  padding: 3rem 2.5rem;
+  position: relative;
+}
+
+.vm-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3px;
+  height: 100%;
+  background: var(--clr-accent);
+}
+
+.vm-number {
+  font-family: var(--font-heading);
+  font-size: 5rem;
+  font-weight: 900;
+  color: rgba(197,168,128,0.08);
+  line-height: 1;
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
+}
+
+.vm-title {
+  font-family: var(--font-heading);
+  font-size: 1.6rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 1.2rem;
+}
+
+.vm-body {
+  font-size: 0.9rem;
+  line-height: 1.85;
+  color: rgba(255,255,255,0.65);
+}
+
+.vm-body li {
+  margin-bottom: 0.5rem;
+}
+
+/* --- Timeline Section --- */
+.timeline-section {
+  background-color: var(--clr-bg-dark);
+}
+
+.timeline-wrap {
+  position: relative;
+  padding-left: 3rem;
+}
+
+.timeline-wrap::before {
+  content: '';
+  position: absolute;
+  left: 0.6rem;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: linear-gradient(to bottom, var(--clr-accent), transparent);
+}
+
+.timeline-item {
+  position: relative;
+  padding-bottom: 3rem;
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -2.57rem;
+  top: 0.35rem;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--clr-accent);
+  border: 2px solid var(--clr-bg-dark);
+  box-shadow: 0 0 0 4px rgba(197,168,128,0.15);
+}
+
+.timeline-year {
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  color: var(--clr-accent);
+  margin-bottom: 0.3rem;
+}
+
+.timeline-heading {
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  margin-bottom: 0.6rem;
+}
+
+.timeline-body {
+  font-size: 0.88rem;
+  line-height: 1.75;
+  color: rgba(255,255,255,0.6);
+}
+
+.timeline-img {
+  width: 100%;
+  max-width: 200px;
+  height: 120px;
+  object-fit: cover;
+  margin-top: 0.8rem;
+  opacity: 0.7;
+}
+
+/* --- Struktur Inti Section --- */
+.struktur-section {
+  background-color: var(--clr-bg-dark2);
+}
+
+.pengurus-card {
+  background-color: var(--clr-bg-dark3);
+  border: 0;
+  text-align: center;
+  padding: 2rem 1.5rem;
+  transition: var(--transition);
+}
+
+.pengurus-card:hover {
+  background-color: #1e1e1e;
+  transform: translateY(-4px);
+}
+
+.pengurus-avatar {
+  width: 90px;
+  height: 90px;
+  object-fit: cover;
+  object-position: top;
+  border-radius: 50%;
+  border: 2px solid var(--clr-accent);
+  margin: 0 auto 1.2rem;
+  display: block;
+}
+
+.pengurus-name {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.3rem;
+}
+
+.pengurus-role {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--clr-accent);
+}

@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>XII MIPA 1 — Velsamen 2026</title>
+  <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../assets/css/vendor/bootstrap-icons/bootstrap-icons.css">
+  <link rel="stylesheet" href="../assets/css/global.css">
+  <style>
+    /* ---- Kelas Detail Page Styles ---- */
+    .kelas-banner {
+      width: 100%;
+      min-height: 70vh;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+      padding-top: 5rem;
+    }
+    .kelas-banner img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 20%;
+    }
+    .kelas-banner .overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.78) 100%);
+    }
+    .kelas-banner .banner-content {
+      position: relative;
+      z-index: 2;
+      padding: 2rem 1rem;
+    }
+    .banner-eyebrow {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--clr-accent);
+      margin-bottom: 1rem;
+    }
+    .banner-title {
+      font-family: var(--font-heading);
+      font-size: clamp(3.5rem, 10vw, 8rem);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      line-height: 0.95;
+      color: var(--clr-white);
+    }
+    .banner-slogan {
+      font-family: var(--font-script);
+      font-size: clamp(1.2rem, 3vw, 2rem);
+      color: var(--clr-accent);
+      margin-top: 1.2rem;
+    }
+    /* Story Section */
+    .story-section { background-color: var(--clr-bg-dark2); }
+    .fact-card {
+      border: 1px solid var(--clr-border);
+      padding: 1.5rem;
+      background: var(--clr-bg-dark3);
+    }
+    .fact-number {
+      font-family: var(--font-heading);
+      font-size: 2.8rem;
+      font-weight: 900;
+      color: var(--clr-accent);
+      line-height: 1;
+    }
+    .fact-label {
+      font-size: 0.72rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: rgba(255,255,255,0.5);
+      margin-top: 0.3rem;
+    }
+    /* Struktur Section */
+    .struktur-section { background-color: var(--clr-bg-dark); }
+    .officer-card {
+      background: var(--clr-bg-dark2);
+      text-align: center;
+      padding: 2rem 1.2rem;
+      border: 1px solid rgba(197,168,128,0.1);
+      transition: var(--transition);
+    }
+    .officer-card:hover { border-color: var(--clr-accent); }
+    .officer-avatar {
+      width: 80px; height: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: top;
+      border: 2px solid var(--clr-accent);
+      margin: 0 auto 1rem;
+      display: block;
+    }
+    .officer-name {
+      font-family: var(--font-heading);
+      font-size: 0.95rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 0.3rem;
+    }
+    .officer-role {
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--clr-accent);
+    }
+    /* Roster Section */
+    .roster-section { background-color: var(--clr-bg-dark2); }
+    .roster-item { text-align: center; }
+    .roster-photo {
+      width: 100%;
+      aspect-ratio: 3/4;
+      object-fit: cover;
+      object-position: top;
+      display: block;
+      filter: grayscale(15%);
+      transition: filter 0.3s;
+    }
+    .roster-item:hover .roster-photo { filter: grayscale(0%); }
+    .roster-nickname {
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: rgba(255,255,255,0.7);
+      margin-top: 0.5rem;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    /* Back link */
+    .back-strip {
+      background: var(--clr-bg-dark3);
+      border-bottom: 1px solid var(--clr-border);
+      padding: 0.8rem 0;
+    }
+    .back-link {
+      font-size: 0.72rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: rgba(255,255,255,0.5);
+      text-decoration: none;
+      transition: var(--transition);
+    }
+    .back-link:hover { color: var(--clr-accent); }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <div id="navbar-placeholder"></div>
+
+  <!-- Back Strip -->
+  <div class="back-strip" style="padding-top:5rem;">
+    <div class="container">
+      <a class="back-link" href="../kelas.html">
+        <i class="bi bi-arrow-left me-2"></i>Kembali ke Direktori Kelas
+      </a>
+    </div>
+  </div>
+
+  <!-- =========================================================
+       BANNER HEADER
+  ========================================================== -->
+  <section class="kelas-banner">
+    <img src="../assets/img/temp/temp_img.jpg" alt="XII MIPA 1">
+    <div class="overlay"></div>
+    <div class="banner-content">
+      <p class="banner-eyebrow">
+        <i class="bi bi-star-fill me-2" style="font-size:0.55rem;"></i>
+        Kelas &bull; XII MIPA 1 &bull; 2026
+      </p>
+      <h1 class="banner-title">XII<br>MIPA 1</h1>
+      <p class="banner-slogan">"Sains adalah bahasa kami, prestasi adalah tanda tangan kami."</p>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       STORY & FUN FACTS
+  ========================================================== -->
+  <section class="story-section section-padding">
+    <div class="container">
+      <div class="row gy-5 align-items-center">
+
+        <!-- Text -->
+        <div class="col-12 col-lg-7 pe-lg-5">
+          <p class="section-label mb-2">Cerita Kami</p>
+          <span class="accent-line mb-4"></span>
+          <h2 class="text-uppercase mb-4" style="font-size:clamp(1.8rem,3vw,2.8rem);">
+            Tentang XII MIPA 1
+          </h2>
+          <p style="font-size:0.95rem;color:rgba(255,255,255,0.65);line-height:1.85;margin-bottom:1.2rem;">
+            XII MIPA 1 bukan sekadar sebuah kelas &mdash; kami adalah keluarga. Dari awal orientasi,
+            kami telah membuktikan bahwa perbedaan latar belakang justru menjadi kekuatan terbesar kami.
+            Bersama, kami mendaki setiap tantangan akademis dengan semangat yang tak pernah padam.
+          </p>
+          <p style="font-size:0.95rem;color:rgba(255,255,255,0.65);line-height:1.85;margin-bottom:1.2rem;">
+            Ruang kelas kami adalah tempat di mana debat ilmiah bertemu dengan tawa lepas.
+            Di mana rumus kimia berdampingan dengan mimpi-mimpi besar. Kami bangga menjadi bagian
+            dari XII MIPA 1, dan kenangan ini akan kami bawa selamanya.
+          </p>
+          <p style="font-size:0.95rem;color:rgba(255,255,255,0.65);line-height:1.85;">
+            Dari Olimpiade Sains hingga pentas seni, dari ujian tengah semester hingga field trip terakhir &mdash;
+            setiap momen kami jalani bersama dengan penuh dedikasi dan cinta.
+          </p>
+        </div>
+
+        <!-- Fun Facts -->
+        <div class="col-12 col-lg-5">
+          <div class="row g-3">
+            <div class="col-6">
+              <div class="fact-card">
+                <div class="fact-number">36</div>
+                <div class="fact-label">Anggota Kelas</div>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="fact-card">
+                <div class="fact-number">3</div>
+                <div class="fact-label">Tahun Bersama</div>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="fact-card">
+                <div class="fact-number">12+</div>
+                <div class="fact-label">Prestasi Diraih</div>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="fact-card">
+                <div class="fact-number">∞</div>
+                <div class="fact-label">Kenangan Abadi</div>
+              </div>
+            </div>
+            <div class="col-12">
+              <div class="fact-card">
+                <i class="bi bi-trophy-fill mb-2" style="font-size:1.4rem;color:var(--clr-accent);"></i>
+                <div style="font-size:0.82rem;color:rgba(255,255,255,0.6);line-height:1.7;">
+                  Juara umum Olimpiade Sains Internal <br>Peringkat tertinggi rata-rata nilai angkatan
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       STRUKTUR KELAS
+  ========================================================== -->
+  <section class="struktur-section section-padding">
+    <div class="container">
+      <div class="text-center mb-5">
+        <p class="section-label mb-2">Kepengurusan</p>
+        <span class="accent-line center mb-3"></span>
+        <h2 class="text-uppercase" style="font-size:clamp(1.6rem,3vw,2.4rem);">Struktur Kelas</h2>
+      </div>
+      <!-- Ketua -->
+      <div class="row justify-content-center mb-4">
+        <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+          <div class="officer-card">
+            <img src="../assets/img/temp/temp_img.jpg" alt="Ketua" class="officer-avatar">
+            <p class="officer-name">Ketua</p>
+            <p class="officer-role">Ketua Kelas</p>
+          </div>
+        </div>
+      </div>
+      <!-- Row 2 -->
+      <div class="row justify-content-center g-3 mb-4">
+        <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+          <div class="officer-card">
+            <img src="../assets/img/temp/temp_img.jpg" alt="Wakil" class="officer-avatar">
+            <p class="officer-name">Wakil</p>
+            <p class="officer-role">Wakil Ketua</p>
+          </div>
+        </div>
+        <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+          <div class="officer-card">
+            <img src="../assets/img/temp/temp_img.jpg" alt="Sekretaris" class="officer-avatar">
+            <p class="officer-name">Sekretaris</p>
+            <p class="officer-role">Sekretaris</p>
+          </div>
+        </div>
+        <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+          <div class="officer-card">
+            <img src="../assets/img/temp/temp_img.jpg" alt="Bendahara" class="officer-avatar">
+            <p class="officer-name">Bendahara</p>
+            <p class="officer-role">Bendahara</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       ROSTER ANGGOTA (PRIVACY COMPLIANT)
+  ========================================================== -->
+  <section class="roster-section section-padding">
+    <div class="container">
+      <div class="text-center mb-5">
+        <p class="section-label mb-2">Anggota</p>
+        <span class="accent-line center mb-3"></span>
+        <h2 class="text-uppercase" style="font-size:clamp(1.6rem,3vw,2.4rem);">Roster Kelas</h2>
+        <p class="mt-2" style="font-size:0.8rem;color:rgba(255,255,255,0.35);letter-spacing:0.1em;">
+          <i class="bi bi-shield-lock-fill me-1" style="color:var(--clr-accent);"></i>
+          Menampilkan nama panggilan saja &mdash; privasi anggota terlindungi
+        </p>
+      </div>
+      <div class="row row-cols-3 row-cols-sm-4 row-cols-md-5 row-cols-lg-6 g-2">
+        <div class="col"><div class="roster-item"><img src="../assets/img/temp/temp_img.jpg" alt="" class="roster-photo"><p class="roster-nickname">Andi</p></div></div>
+        <div class="col"><div class="roster-item"><img src="../assets/img/temp/temp_img.jpg" alt="" class="roster-photo"><p class="roster-nickname">Bella</p></div></div>
+        <div class="col"><div class="roster-item"><img src="../assets/img/temp/temp_img.jpg" alt="" class="roster-photo"><p class="roster-nickname">Caca</p></div></div>
+        <div class="col"><div class="roster-item"><img src="../assets/img/temp/temp_img.jpg" alt="" class="roster-photo"><p class="roster-nickname">Dito</p></div></div>
+        <div class="col"><div class="roster-item"><img src="../assets/img/temp/temp_img.jpg" alt="" class="roster-photo"><p class="roster-nickname">Ella</p></div></div>
+        <div class="col"><div class="roster-item"><img src="../assets/img/temp/temp_img.jpg" alt="" class="roster-photo"><p class="roster-nickname">Fariz</p></div></div>
+        <div class="col"><div class="roster-item"><img src="../assets/img/temp/temp_img.jpg" alt="" class="roster-photo"><p class="roster-nickname">Gita</p></div></div>
+        <div class="col"><div class="roster-item"><img src="../assets/img/temp/temp_img.jpg" alt="" class="roster-photo"><p class="roster-nickname">Hana</p></div></div>
+        <div class="col"><div class="roster-item"><img src="../assets/img/temp/temp_img.jpg" alt="" class="roster-photo"><p class="roster-nickname">Irfan</p></div></div>
+        <div class="col"><div class="roster-item"><img src="../assets/img/temp/temp_img.jpg" alt="" class="roster-photo"><p class="roster-nickname">Jeni</p></div></div>
+        <div class="col"><div class="roster-item"><img src="../assets/img/temp/temp_img.jpg" alt="" class="roster-photo"><p class="roster-nickname">Kevin</p></div></div>
+        <div class="col"><div class="roster-item"><img src="../assets/img/temp/temp_img.jpg" alt="" class="roster-photo"><p class="roster-nickname">Luna</p></div></div>
+        <div class="col"><div class="roster-item"><img src="../assets/img/temp/temp_img.jpg" alt="" class="roster-photo"><p class="roster-nickname">Miko</p></div></div>
+        <div class="col"><div class="roster-item"><img src="../assets/img/temp/temp_img.jpg" alt="" class="roster-photo"><p class="roster-nickname">Nana</p></div></div>
+        <div class="col"><div class="roster-item"><img src="../assets/img/temp/temp_img.jpg" alt="" class="roster-photo"><p class="roster-nickname">Omar</p></div></div>
+        <div class="col"><div class="roster-item"><img src="../assets/img/temp/temp_img.jpg" alt="" class="roster-photo"><p class="roster-nickname">Putri</p></div></div>
+        <div class="col"><div class="roster-item"><img src="../assets/img/temp/temp_img.jpg" alt="" class="roster-photo"><p class="roster-nickname">Qila</p></div></div>
+        <div class="col"><div class="roster-item"><img src="../assets/img/temp/temp_img.jpg" alt="" class="roster-photo"><p class="roster-nickname">Rafi</p></div></div>
+        <div class="col"><div class="roster-item"><img src="../assets/img/temp/temp_img.jpg" alt="" class="roster-photo"><p class="roster-nickname">Sari</p></div></div>
+        <div class="col"><div class="roster-item"><img src="../assets/img/temp/temp_img.jpg" alt="" class="roster-photo"><p class="roster-nickname">Tama</p></div></div>
+        <div class="col"><div class="roster-item"><img src="../assets/img/temp/temp_img.jpg" alt="" class="roster-photo"><p class="roster-nickname">Uli</p></div></div>
+        <div class="col"><div class="roster-item"><img src="../assets/img/temp/temp_img.jpg" alt="" class="roster-photo"><p class="roster-nickname">Vian</p></div></div>
+        <div class="col"><div class="roster-item"><img src="../assets/img/temp/temp_img.jpg" alt="" class="roster-photo"><p class="roster-nickname">Wulan</p></div></div>
+        <div class="col"><div class="roster-item"><img src="../assets/img/temp/temp_img.jpg" alt="" class="roster-photo"><p class="roster-nickname">Xena</p></div></div>
+        <div class="col"><div class="roster-item"><img src="../assets/img/temp/temp_img.jpg" alt="" class="roster-photo"><p class="roster-nickname">Yoga</p></div></div>
+        <div class="col"><div class="roster-item"><img src="../assets/img/temp/temp_img.jpg" alt="" class="roster-photo"><p class="roster-nickname">Zara</p></div></div>
+        <div class="col"><div class="roster-item"><img src="../assets/img/temp/temp_img.jpg" alt="" class="roster-photo"><p class="roster-nickname">Aldi</p></div></div>
+        <div class="col"><div class="roster-item"><img src="../assets/img/temp/temp_img.jpg" alt="" class="roster-photo"><p class="roster-nickname">Bimo</p></div></div>
+        <div class="col"><div class="roster-item"><img src="../assets/img/temp/temp_img.jpg" alt="" class="roster-photo"><p class="roster-nickname">Cinta</p></div></div>
+        <div class="col"><div class="roster-item"><img src="../assets/img/temp/temp_img.jpg" alt="" class="roster-photo"><p class="roster-nickname">Deni</p></div></div>
+        <div class="col"><div class="roster-item"><img src="../assets/img/temp/temp_img.jpg" alt="" class="roster-photo"><p class="roster-nickname">Erna</p></div></div>
+        <div class="col"><div class="roster-item"><img src="../assets/img/temp/temp_img.jpg" alt="" class="roster-photo"><p class="roster-nickname">Fauzan</p></div></div>
+        <div class="col"><div class="roster-item"><img src="../assets/img/temp/temp_img.jpg" alt="" class="roster-photo"><p class="roster-nickname">Gani</p></div></div>
+        <div class="col"><div class="roster-item"><img src="../assets/img/temp/temp_img.jpg" alt="" class="roster-photo"><p class="roster-nickname">Hesti</p></div></div>
+        <div class="col"><div class="roster-item"><img src="../assets/img/temp/temp_img.jpg" alt="" class="roster-photo"><p class="roster-nickname">Ilham</p></div></div>
+        <div class="col"><div class="roster-item"><img src="../assets/img/temp/temp_img.jpg" alt="" class="roster-photo"><p class="roster-nickname">Jojo</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <div id="footer-placeholder"></div>
+
+  <!-- SCRIPTS -->
+  <script src="../assets/js/jquery.min.js"></script>
+  <script src="../assets/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/js/global.js"></script>
+</body>
+</html>

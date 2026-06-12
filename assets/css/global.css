@@ -1,0 +1,267 @@
+/* =========================================
+   GLOBAL.CSS — Velsamen Angkatan 2026
+   Base variables, typography, shared rules
+   ========================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Dancing+Script:wght@400;600&family=Inter:wght@300;400;500;600&display=swap');
+
+/* --- CSS Variables --- */
+:root {
+  --clr-bg-dark:    #121212;
+  --clr-bg-dark2:   #1a1a1a;
+  --clr-bg-dark3:   #0d0d0d;
+  --clr-white:      #ffffff;
+  --clr-light:      #f5f5f5;
+  --clr-accent:     #C5A880;
+  --clr-accent2:    #D4AF37;
+  --clr-text-dark:  #111111;
+  --clr-text-muted: #888888;
+  --clr-border:     rgba(197,168,128,0.25);
+  --font-heading:   'Playfair Display', Georgia, serif;
+  --font-script:    'Dancing Script', cursive;
+  --font-body:      'Inter', Helvetica, Arial, sans-serif;
+  --transition:     all 0.35s ease;
+}
+
+/* --- Base Reset & Body --- */
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--clr-bg-dark);
+  color: var(--clr-white);
+  line-height: 1.75;
+  font-size: 1rem;
+  overflow-x: hidden;
+}
+
+/* --- Typography --- */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  line-height: 1.1;
+}
+
+.text-script {
+  font-family: var(--font-script);
+  font-weight: 400;
+  color: var(--clr-accent);
+  font-size: 1.4em;
+}
+
+.text-accent { color: var(--clr-accent); }
+.text-accent2 { color: var(--clr-accent2); }
+
+/* --- Section Utilities --- */
+.section-dark {
+  background-color: var(--clr-bg-dark);
+  color: var(--clr-white);
+}
+
+.section-dark2 {
+  background-color: var(--clr-bg-dark2);
+  color: var(--clr-white);
+}
+
+.section-dark3 {
+  background-color: var(--clr-bg-dark3);
+  color: var(--clr-white);
+}
+
+.section-white {
+  background-color: var(--clr-white);
+  color: var(--clr-text-dark);
+}
+
+.section-padding {
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+}
+
+/* --- Divider Line --- */
+.accent-line {
+  display: block;
+  width: 60px;
+  height: 2px;
+  background: var(--clr-accent);
+  margin: 1rem 0;
+}
+
+.accent-line.center { margin: 1rem auto; }
+
+/* --- Buttons --- */
+.btn-accent {
+  background-color: var(--clr-accent);
+  color: var(--clr-text-dark);
+  border: none;
+  font-family: var(--font-body);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  padding: 0.75rem 2.2rem;
+  border-radius: 0;
+  transition: var(--transition);
+}
+
+.btn-accent:hover {
+  background-color: var(--clr-accent2);
+  color: var(--clr-text-dark);
+  transform: translateY(-2px);
+}
+
+.btn-outline-accent {
+  background: transparent;
+  color: var(--clr-accent);
+  border: 1.5px solid var(--clr-accent);
+  font-family: var(--font-body);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  padding: 0.75rem 2.2rem;
+  border-radius: 0;
+  transition: var(--transition);
+}
+
+.btn-outline-accent:hover {
+  background-color: var(--clr-accent);
+  color: var(--clr-text-dark);
+}
+
+.btn-outline-white {
+  background: transparent;
+  color: var(--clr-white);
+  border: 1.5px solid var(--clr-white);
+  font-family: var(--font-body);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  padding: 0.75rem 2.2rem;
+  border-radius: 0;
+  transition: var(--transition);
+}
+
+.btn-outline-white:hover {
+  background-color: var(--clr-white);
+  color: var(--clr-text-dark);
+}
+
+/* --- Navbar (injected via global.js) --- */
+#navbar-placeholder .navbar {
+  background-color: rgba(13,13,13,0.96);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--clr-border);
+  padding: 1.1rem 0;
+  transition: var(--transition);
+}
+
+#navbar-placeholder .navbar-brand {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: var(--clr-white);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+#navbar-placeholder .navbar-brand span {
+  color: var(--clr-accent);
+}
+
+#navbar-placeholder .nav-link {
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: rgba(255,255,255,0.75) !important;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  padding: 0.4rem 1rem !important;
+  transition: var(--transition);
+}
+
+#navbar-placeholder .nav-link:hover,
+#navbar-placeholder .nav-link.active {
+  color: var(--clr-accent) !important;
+}
+
+#navbar-placeholder .navbar-toggler {
+  border-color: var(--clr-border);
+}
+
+#navbar-placeholder .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28197%2C168%2C128%2C1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+/* --- Footer (injected via global.js) --- */
+#footer-placeholder footer {
+  background-color: var(--clr-bg-dark3);
+  border-top: 1px solid var(--clr-border);
+  padding: 3.5rem 0 2rem;
+}
+
+#footer-placeholder .footer-brand {
+  font-family: var(--font-heading);
+  font-size: 1.6rem;
+  font-weight: 900;
+  color: var(--clr-white);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+#footer-placeholder .footer-brand span {
+  color: var(--clr-accent);
+}
+
+#footer-placeholder .footer-link {
+  color: rgba(255,255,255,0.55);
+  text-decoration: none;
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: var(--transition);
+}
+
+#footer-placeholder .footer-link:hover {
+  color: var(--clr-accent);
+}
+
+#footer-placeholder .footer-copy {
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.3);
+  letter-spacing: 0.06em;
+}
+
+/* --- Image Utilities --- */
+.img-cover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+/* --- Section Label --- */
+.section-label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  color: var(--clr-accent);
+}
+
+/* --- Scrollbar --- */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--clr-bg-dark3); }
+::-webkit-scrollbar-thumb { background: var(--clr-accent); border-radius: 3px; }
+
+/* --- Selection --- */
+::selection {
+  background-color: var(--clr-accent);
+  color: var(--clr-text-dark);
+}
+
+/* --- Page Loading Fade --- */
+body { animation: fadeIn 0.4s ease; }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }

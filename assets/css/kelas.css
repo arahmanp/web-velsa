@@ -1,0 +1,168 @@
+/* =========================================
+   KELAS.CSS — Hub Kelas page styles
+   ========================================= */
+
+/* --- Page Banner --- */
+.kelas-hero {
+  min-height: 45vh;
+  background-color: var(--clr-bg-dark3);
+  padding-top: 7rem;
+  padding-bottom: 4rem;
+  display: flex;
+  align-items: flex-end;
+  position: relative;
+  overflow: hidden;
+}
+
+.kelas-hero::after {
+  content: 'KELAS';
+  font-family: var(--font-heading);
+  font-size: 18vw;
+  font-weight: 900;
+  color: rgba(255,255,255,0.025);
+  position: absolute;
+  right: -2rem;
+  bottom: -1rem;
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* --- Class Cards Grid --- */
+.kelas-grid-section {
+  background-color: var(--clr-bg-dark2);
+}
+
+.class-card {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  display: block;
+  text-decoration: none;
+  aspect-ratio: 3/4;
+}
+
+.class-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  transition: transform 0.6s ease;
+  display: block;
+}
+
+.class-card:hover img {
+  transform: scale(1.08);
+}
+
+.class-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0,0,0,0.92) 0%,
+    rgba(0,0,0,0.4) 50%,
+    transparent 100%
+  );
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 2rem 1.8rem;
+  transition: var(--transition);
+}
+
+.class-card:hover .class-card-overlay {
+  background: linear-gradient(
+    to top,
+    rgba(0,0,0,0.96) 0%,
+    rgba(0,0,0,0.55) 50%,
+    rgba(0,0,0,0.1) 100%
+  );
+}
+
+.class-card-label {
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  color: var(--clr-accent);
+  margin-bottom: 0.4rem;
+}
+
+.class-card-name {
+  font-family: var(--font-heading);
+  font-size: 1.8rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--clr-white);
+  line-height: 1;
+  margin-bottom: 1.2rem;
+}
+
+.class-card-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--clr-white);
+  text-decoration: none;
+  border-bottom: 1px solid var(--clr-accent);
+  padding-bottom: 2px;
+  transform: translateY(10px);
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.class-card:hover .class-card-btn {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.class-card-btn i {
+  font-size: 1.1rem;
+  color: var(--clr-accent);
+  transition: transform 0.25s;
+}
+
+.class-card-btn:hover i {
+  transform: translateX(4px);
+}
+
+/* --- Kelas Info Strip --- */
+.kelas-info-strip {
+  background-color: var(--clr-white);
+  color: var(--clr-text-dark);
+  padding: 3rem 0;
+}
+
+.info-strip-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.5rem;
+}
+
+.info-strip-icon {
+  font-size: 1.8rem;
+  color: var(--clr-accent);
+  flex-shrink: 0;
+}
+
+.info-strip-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: #777;
+}
+
+.info-strip-value {
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  font-weight: 900;
+  color: var(--clr-text-dark);
+}
