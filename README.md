@@ -52,10 +52,10 @@ app/
 
 ```bash
 # 1. Clone repo ke komputer lokal
-git clone https://github.com/<username>/<repo-name>.git
+git clone https://github.com/arahmanp/web-velsa.git
 
 # 2. Masuk ke folder project
-cd <repo-name>/app
+cd web-velsa/
 ```
 
 ### Opsi B — Download ZIP
